@@ -1,0 +1,48 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/opositores_db
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+server:
+  port: 8080
+
+# JWT Configuration
+jwt:
+  secret: ${JWT_SECRET:cambiar-esta-clave-en-produccion-debe-ser-larga-y-segura-256bits}
+  expiration-ms: 86400000  # 24 horas
+
+# AI API Configuration (parametrizado, sin claves reales)
+ai:
+  provider: openai   # openai | anthropic | custom
+  base-url: ${AI_BASE_URL:https://api.openai.com/v1}
+  api-key: ${AI_API_KEY:tu-clave-aqui}
+  model: ${AI_MODEL:gpt-4o-mini}
+  max-tokens: 4096
+  timeout-seconds: 60
+
+# Almacenamiento de documentos (abstracto)
+storage:
+  type: ${STORAGE_TYPE:local}   # local | s3
+  local-path: ${STORAGE_LOCAL_PATH:/tmp/opositores/documents}
+  s3-bucket: ${S3_BUCKET:opositores-docs}
+  s3-region: ${S3_REGION:eu-west-1}
+
+logging:
+  level:
+    com.opositores: DEBUG
+    org.springframework.security: INFO

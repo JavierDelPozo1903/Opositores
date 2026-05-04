@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Opositores</string>
+    <string name="login_title">Iniciar sesión</string>
+    <string name="register">Registrarse</string>
+    <string name="login">Entrar</string>
+    <string name="email_hint">Correo electrónico</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="name_hint">Nombre completo</string>
+</resources>
