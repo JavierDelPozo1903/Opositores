@@ -2,8 +2,8 @@ package com.opositores.android.ui.topics;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -73,18 +73,15 @@ public class TopicDetailActivity extends AppCompatActivity {
 
         TextView tvDifficulty = findViewById(R.id.tvDifficulty);
         TextView tvReviews = findViewById(R.id.tvReviews);
-        tvDifficulty.setText("Dificultad: " + difficulty + "/5");
-        tvReviews.setText("Repasos realizados: " + reviews);
+        tvDifficulty.setText(difficulty + "/5");
+        tvReviews.setText(String.valueOf(reviews));
 
-        Button btnSaveStatus = findViewById(R.id.btnMakeTest);
-        Button btnFlashcards = findViewById(R.id.btnFlashcards);
+        View btnTest = findViewById(R.id.btnMakeTest);
+        View btnFlash = findViewById(R.id.btnFlashcards);
 
-        btnSaveStatus.setOnClickListener(v -> {
-            String selectedStatus = STATUSES[spinnerStatus.getSelectedItemPosition()];
-            saveStatusAndLaunchTest(selectedStatus);
-        });
+        btnTest.setOnClickListener(v -> saveStatusAndLaunchTest());
 
-        btnFlashcards.setOnClickListener(v -> {
+        btnFlash.setOnClickListener(v -> {
             Intent intent = new Intent(this, FlashcardActivity.class);
             intent.putExtra(FlashcardActivity.EXTRA_TOPIC_ID, topicId);
             intent.putExtra(FlashcardActivity.EXTRA_TOPIC_TITLE, title);
@@ -92,7 +89,8 @@ public class TopicDetailActivity extends AppCompatActivity {
         });
     }
 
-    private void saveStatusAndLaunchTest(String status) {
+    private void saveStatusAndLaunchTest() {
+        String status = STATUSES[spinnerStatus.getSelectedItemPosition()];
         TopicModel.UpdateRequest req = new TopicModel.UpdateRequest();
         req.status = status;
 

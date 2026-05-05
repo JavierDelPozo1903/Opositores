@@ -28,8 +28,8 @@ public class FlashcardActivity extends AppCompatActivity {
     private int currentIndex = 0;
     private boolean answerVisible = false;
 
-    private TextView tvProgress, tvQuestion, tvAnswer, tvEmpty;
-    private View divider;
+    private TextView tvProgress, tvQuestion, tvAnswer, tvAnswerLabel;
+    private View divider, tvEmpty;
     private Button btnReveal, btnPrev, btnNext;
 
     @Override
@@ -50,6 +50,7 @@ public class FlashcardActivity extends AppCompatActivity {
         tvProgress = findViewById(R.id.tvProgress);
         tvQuestion = findViewById(R.id.tvQuestion);
         tvAnswer = findViewById(R.id.tvAnswer);
+        tvAnswerLabel = findViewById(R.id.tvAnswerLabel);
         tvEmpty = findViewById(R.id.tvEmpty);
         divider = findViewById(R.id.divider);
         btnReveal = findViewById(R.id.btnReveal);
@@ -106,6 +107,7 @@ public class FlashcardActivity extends AppCompatActivity {
         if (currentIndex >= flashcards.size()) return;
         tvAnswer.setText(flashcards.get(currentIndex).answer);
         tvAnswer.setVisibility(View.VISIBLE);
+        tvAnswerLabel.setVisibility(View.VISIBLE);
         divider.setVisibility(View.VISIBLE);
         btnReveal.setVisibility(View.GONE);
         answerVisible = true;

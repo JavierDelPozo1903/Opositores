@@ -67,15 +67,17 @@ public class BlockWithTopicsAdapter extends RecyclerView.Adapter<BlockWithTopics
         });
 
         // Mostramos los temas cargados
-        if (!topics.isEmpty()) {
-            holder.rvTopics.setVisibility(View.VISIBLE);
+        boolean expanded = !topics.isEmpty();
+        holder.rvTopics.setVisibility(expanded ? View.VISIBLE : View.GONE);
+        if (holder.divider != null) holder.divider.setVisibility(expanded ? View.VISIBLE : View.GONE);
+        if (holder.tvChevron != null) holder.tvChevron.setText(expanded ? "▲" : "▼");
+
+        if (expanded) {
             TopicAdapter topicAdapter = new TopicAdapter(topics,
                     (topicId, status) -> updateTopicStatus(holder, topicId, status), oppositionId);
             holder.rvTopics.setLayoutManager(
                     new androidx.recyclerview.widget.LinearLayoutManager(holder.itemView.getContext()));
             holder.rvTopics.setAdapter(topicAdapter);
-        } else {
-            holder.rvTopics.setVisibility(View.GONE);
         }
     }
 
@@ -102,14 +104,17 @@ public class BlockWithTopicsAdapter extends RecyclerView.Adapter<BlockWithTopics
     public int getItemCount() { return blocks.size(); }
 
     static class BlockViewHolder extends RecyclerView.ViewHolder {
-        TextView tvBlockName, tvTopicCount;
+        TextView tvBlockName, tvTopicCount, tvChevron;
         RecyclerView rvTopics;
+        View divider;
 
         BlockViewHolder(View view) {
             super(view);
             tvBlockName = view.findViewById(R.id.tvBlockName);
             tvTopicCount = view.findViewById(R.id.tvTopicCount);
+            tvChevron = view.findViewById(R.id.tvBlockChevron);
             rvTopics = view.findViewById(R.id.rvTopics);
+            divider = view.findViewById(R.id.dividerBlock);
         }
     }
 }

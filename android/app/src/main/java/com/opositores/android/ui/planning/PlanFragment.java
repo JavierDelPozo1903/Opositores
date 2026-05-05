@@ -33,7 +33,7 @@ public class PlanFragment extends Fragment {
 
     private long oppositionId;
     private RecyclerView rvPlan;
-    private TextView tvEmpty;
+    private View tvEmpty;
     private PlanSessionAdapter adapter;
     private final List<PlanModels.StudySessionDto> sessions = new ArrayList<>();
 
