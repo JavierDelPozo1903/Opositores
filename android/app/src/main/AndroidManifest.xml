@@ -14,7 +14,6 @@
         android:theme="@style/Theme.Opositores"
         android:usesCleartextTraffic="true">
 
-        <!-- Actividad de login (launcher) -->
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="true">
@@ -28,6 +27,8 @@
         <activity android:name=".ui.oppositions.OppositionDetailActivity" android:exported="false"/>
         <activity android:name=".ui.tests.TestCreationActivity" android:exported="false"/>
         <activity android:name=".ui.tests.TestRunActivity" android:exported="false"/>
+        <activity android:name=".ui.topics.TopicDetailActivity" android:exported="false"/>
+        <activity android:name=".ui.flashcards.FlashcardActivity" android:exported="false"/>
 
     </application>
 </manifest>

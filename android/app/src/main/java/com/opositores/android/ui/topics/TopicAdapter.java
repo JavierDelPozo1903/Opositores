@@ -1,5 +1,6 @@
 package com.opositores.android.ui.topics;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,10 +29,12 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.TopicViewHol
 
     private final List<TopicModel> topics;
     private final OnStatusChange statusChangeListener;
+    private final long oppositionId;
 
-    public TopicAdapter(List<TopicModel> topics, OnStatusChange listener) {
+    public TopicAdapter(List<TopicModel> topics, OnStatusChange listener, long oppositionId) {
         this.topics = topics;
         this.statusChangeListener = listener;
+        this.oppositionId = oppositionId;
     }
 
     @NonNull
@@ -49,28 +52,35 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.TopicViewHol
         holder.tvTitle.setText(prefix + topic.title);
         holder.tvInfo.setText("Dif: " + topic.difficulty + " | Prio: " + topic.priority);
 
-        // Configura el spinner con los estados
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(
                 holder.itemView.getContext(), android.R.layout.simple_spinner_item, STATUS_LABELS);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         holder.spinnerStatus.setAdapter(spinnerAdapter);
 
-        // Seleccionamos el estado actual
         int currentIndex = Arrays.asList(STATUSES).indexOf(topic.status);
         if (currentIndex >= 0) holder.spinnerStatus.setSelection(currentIndex, false);
 
         holder.spinnerStatus.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            boolean first = true; // evitar disparo al montar el item
-
+            boolean first = true;
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 if (first) { first = false; return; }
                 topic.status = STATUSES[pos];
                 statusChangeListener.onChange(topic.id, STATUSES[pos]);
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}
+        });
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), TopicDetailActivity.class);
+            intent.putExtra(TopicDetailActivity.EXTRA_TOPIC_ID, topic.id);
+            intent.putExtra(TopicDetailActivity.EXTRA_TOPIC_TITLE, topic.title);
+            intent.putExtra(TopicDetailActivity.EXTRA_TOPIC_STATUS, topic.status);
+            intent.putExtra(TopicDetailActivity.EXTRA_TOPIC_DIFFICULTY, topic.difficulty);
+            intent.putExtra(TopicDetailActivity.EXTRA_TOPIC_REVIEWS, topic.reviewCount);
+            intent.putExtra(TopicDetailActivity.EXTRA_OPPOSITION_ID, oppositionId);
+            v.getContext().startActivity(intent);
         });
     }
 

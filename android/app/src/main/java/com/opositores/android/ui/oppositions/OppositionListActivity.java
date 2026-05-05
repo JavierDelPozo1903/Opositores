@@ -2,6 +2,8 @@ package com.opositores.android.ui.oppositions;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +13,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
 import com.opositores.android.R;
+import com.opositores.android.data.local.prefs.SessionManager;
 import com.opositores.android.databinding.ActivityOppositionListBinding;
+import com.opositores.android.ui.login.LoginActivity;
 import com.opositores.android.viewmodel.OppositionViewModel;
 
 public class OppositionListActivity extends AppCompatActivity {
@@ -26,11 +30,34 @@ public class OppositionListActivity extends AppCompatActivity {
         binding = ActivityOppositionListBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        setSupportActionBar(binding.toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Mis oposiciones");
+        }
+
         viewModel = new ViewModelProvider(this).get(OppositionViewModel.class);
 
         setupRecyclerView();
         setupObservers();
         setupListeners();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_logout) {
+            new SessionManager(this).clearSession();
+            Intent intent = new Intent(this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void setupRecyclerView() {

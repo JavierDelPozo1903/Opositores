@@ -35,10 +35,12 @@ public class BlockWithTopicsAdapter extends RecyclerView.Adapter<BlockWithTopics
     private final List<BlockModel> blocks;
     private final Map<Long, List<TopicModel>> topicsMap = new HashMap<>();
     private final OnBlockExpand expandListener;
+    private final long oppositionId;
 
-    public BlockWithTopicsAdapter(List<BlockModel> blocks, OnBlockExpand expandListener) {
+    public BlockWithTopicsAdapter(List<BlockModel> blocks, OnBlockExpand expandListener, long oppositionId) {
         this.blocks = blocks;
         this.expandListener = expandListener;
+        this.oppositionId = oppositionId;
     }
 
     @NonNull
@@ -68,7 +70,7 @@ public class BlockWithTopicsAdapter extends RecyclerView.Adapter<BlockWithTopics
         if (!topics.isEmpty()) {
             holder.rvTopics.setVisibility(View.VISIBLE);
             TopicAdapter topicAdapter = new TopicAdapter(topics,
-                    (topicId, status) -> updateTopicStatus(holder, topicId, status));
+                    (topicId, status) -> updateTopicStatus(holder, topicId, status), oppositionId);
             holder.rvTopics.setLayoutManager(
                     new androidx.recyclerview.widget.LinearLayoutManager(holder.itemView.getContext()));
             holder.rvTopics.setAdapter(topicAdapter);
