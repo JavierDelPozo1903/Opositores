@@ -79,7 +79,10 @@ public class TestRunActivity extends AppCompatActivity {
         TestModels.TestQuestionDto tq = questions.get(index);
         TestModels.QuestionDto q = tq.question;
 
-        binding.tvProgress.setText((index + 1) + "/" + questions.size());
+        binding.tvProgress.setText("Pregunta " + (index + 1) + " de " + questions.size());
+        if (binding.progressBarQuestion != null) {
+            binding.progressBarQuestion.setProgress((index + 1) * 100 / questions.size());
+        }
         binding.tvQuestion.setText(q.questionText);
         binding.radioGroup.clearCheck();
 

@@ -4,8 +4,19 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="12dp"
-    android:divider="?android:dividerHorizontal">
+    android:paddingStart="20dp"
+    android:gravity="center_vertical"
+    android:background="?attr/selectableItemBackground">
 
+    <!-- Punto de estado -->
+    <View
+        android:id="@+id/viewStatusDot"
+        android:layout_width="9dp"
+        android:layout_height="9dp"
+        android:background="@drawable/bg_logo_circle"
+        android:layout_marginEnd="12dp"/>
+
+    <!-- Texto del tema -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -16,19 +27,25 @@
             android:id="@+id/tvTopicTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14sp"/>
+            android:textSize="14sp"
+            android:textColor="@color/text_primary"
+            android:maxLines="2"
+            android:ellipsize="end"/>
 
         <TextView
             android:id="@+id/tvTopicInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:textColor="#888888"/>
+            android:textSize="11sp"
+            android:textColor="@color/text_hint"
+            android:layout_marginTop="2dp"/>
     </LinearLayout>
 
+    <!-- Spinner de estado -->
     <Spinner
         android:id="@+id/spinnerTopicStatus"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"/>
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"/>
 
 </LinearLayout>

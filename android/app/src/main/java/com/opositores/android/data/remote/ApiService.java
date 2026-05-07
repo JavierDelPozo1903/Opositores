@@ -2,7 +2,9 @@ package com.opositores.android.data.remote;
 
 import com.opositores.android.data.remote.model.AuthModels;
 import com.opositores.android.data.remote.model.BlockModel;
+import com.opositores.android.data.remote.model.FlashcardModel;
 import com.opositores.android.data.remote.model.OppositionModel;
+import com.opositores.android.data.remote.model.PlanModels;
 import com.opositores.android.data.remote.model.TestModels;
 import com.opositores.android.data.remote.model.TopicModel;
 
@@ -44,13 +46,37 @@ public interface ApiService {
     @GET("oppositions/{id}/blocks")
     Call<List<BlockModel>> getBlocks(@Path("id") long oppositionId);
 
+    @POST("oppositions/{id}/blocks")
+    Call<BlockModel> createBlock(@Path("id") long oppositionId, @Body BlockModel req);
+
     // ─── Temas ──────────────────────────────────────────────────────────────
 
     @GET("blocks/{id}/topics")
     Call<List<TopicModel>> getTopics(@Path("id") long blockId);
 
+    @POST("blocks/{id}/topics")
+    Call<TopicModel> createTopic(@Path("id") long blockId, @Body TopicModel req);
+
     @PUT("topics/{id}")
     Call<TopicModel> updateTopic(@Path("id") long topicId, @Body TopicModel.UpdateRequest req);
+
+    // ─── Plan de estudio ────────────────────────────────────────────────────
+
+    @POST("oppositions/{id}/plan")
+    Call<List<PlanModels.StudySessionDto>> generatePlan(
+            @Path("id") long oppositionId,
+            @Body PlanModels.GeneratePlanRequest req);
+
+    @GET("oppositions/{id}/plan")
+    Call<List<PlanModels.StudySessionDto>> getPlan(
+            @Path("id") long oppositionId,
+            @Query("from") String from,
+            @Query("to") String to);
+
+    @PATCH("study-sessions/{id}")
+    Call<PlanModels.StudySessionDto> updateSessionStatus(
+            @Path("id") long sessionId,
+            @Body Map<String, String> body);
 
     // ─── Tests ──────────────────────────────────────────────────────────────
 
@@ -63,6 +89,11 @@ public interface ApiService {
     @POST("tests/{id}/submit")
     Call<TestModels.ResultDto> submitTest(@Path("id") long testId,
                                           @Body TestModels.SubmitRequest req);
+
+    // ─── Flashcards ─────────────────────────────────────────────────────────
+
+    @GET("topics/{id}/flashcards")
+    Call<List<FlashcardModel>> getFlashcards(@Path("id") long topicId);
 
     // ─── Estadísticas ───────────────────────────────────────────────────────
 

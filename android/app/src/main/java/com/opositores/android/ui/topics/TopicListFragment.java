@@ -73,7 +73,7 @@ public class TopicListFragment extends Fragment {
 
     private void setupBlockAdapter(List<BlockModel> blocks) {
         BlockWithTopicsAdapter adapter = new BlockWithTopicsAdapter(blocks,
-                blockId -> loadTopicsForBlock(blockId));
+                blockId -> loadTopicsForBlock(blockId), oppositionId);
         rvBlocks.setAdapter(adapter);
     }
 
