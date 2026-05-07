@@ -8,25 +8,26 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="4dp">
+        android:elevation="0dp"
+        android:background="@color/dark">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@drawable/bg_primary_gradient"
+            android:background="@color/dark"
             app:titleTextColor="@color/white"
-            app:subtitleTextColor="#CCFFFFFF"
-            app:navigationIconTint="@color/white"/>
+            app:subtitleTextColor="#99ffffff"
+            app:navigationIconTint="@color/primary"/>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/primary_medium"
-            app:tabTextColor="#AAFFFFFF"
-            app:tabSelectedTextColor="@color/white"
-            app:tabIndicatorColor="@color/secondary"
+            android:background="@color/dark"
+            app:tabTextColor="#66ffffff"
+            app:tabSelectedTextColor="@color/primary"
+            app:tabIndicatorColor="@color/primary"
             app:tabIndicatorHeight="3dp"
             app:tabMode="fixed"
             app:tabGravity="fill"/>

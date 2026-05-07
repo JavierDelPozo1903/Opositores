@@ -9,15 +9,16 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="4dp">
+        android:elevation="0dp"
+        android:background="@color/dark">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@drawable/bg_primary_gradient"
-            app:titleTextColor="@color/white"
-            app:title="Mis Oposiciones"/>
+            android:background="@color/dark"
+            app:titleTextColor="@color/primary"
+            app:title="opositOS"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -61,7 +62,7 @@
         android:paddingBottom="88dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
-    <!-- FAB extendido -->
+    <!-- FAB -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAddOpposition"
         android:layout_width="wrap_content"
@@ -69,7 +70,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:src="@android:drawable/ic_input_add"
-        android:backgroundTint="@color/secondary"
-        app:tint="@color/white"/>
+        android:backgroundTint="@color/primary"
+        app:tint="@color/on_primary"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

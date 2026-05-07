@@ -10,14 +10,15 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="4dp">
+        android:elevation="0dp"
+        android:background="@color/dark">
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@drawable/bg_primary_gradient"
+            android:background="@color/dark"
             app:titleTextColor="@color/white"
-            app:navigationIconTint="@color/white"/>
+            app:navigationIconTint="@color/primary"/>
     </com.google.android.material.appbar.AppBarLayout>
 
     <!-- Progreso -->
@@ -52,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:text="PREGUNTA"
                 android:textSize="11sp"
-                android:textColor="@color/primary_light"
+                android:textColor="@color/text_secondary"
                 android:letterSpacing="0.1"
                 android:layout_marginBottom="20dp"/>
 
@@ -128,9 +129,10 @@
             android:layout_height="48dp"
             android:layout_weight="1"
             android:text="← Anterior"
+            android:textColor="@color/dark"
             android:layout_marginEnd="8dp"
-            app:strokeColor="@color/primary"
-            app:cornerRadius="10dp"
+            app:strokeColor="@color/dark_border"
+            app:cornerRadius="24dp"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
         <com.google.android.material.button.MaterialButton
@@ -139,8 +141,10 @@
             android:layout_height="48dp"
             android:layout_weight="1"
             android:text="Siguiente →"
+            android:textColor="@color/on_primary"
+            android:backgroundTint="@color/dark"
             android:layout_marginStart="8dp"
-            app:cornerRadius="10dp"/>
+            app:cornerRadius="24dp"/>
 
     </LinearLayout>
 

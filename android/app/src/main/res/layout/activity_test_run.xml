@@ -6,12 +6,12 @@
     android:orientation="vertical"
     android:background="@color/background">
 
-    <!-- Header con gradiente -->
+    <!-- Header oscuro -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/bg_primary_gradient"
+        android:background="@color/dark"
         android:padding="16dp">
 
         <LinearLayout
@@ -34,12 +34,12 @@
                 android:id="@+id/tvTimer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="@color/secondary_light"
+                android:textSize="14sp"
+                android:textColor="@color/on_primary"
                 android:textStyle="bold"
                 android:paddingHorizontal="12dp"
                 android:paddingVertical="4dp"
-                android:background="@drawable/bg_logo_circle"
+                android:background="@drawable/bg_status_badge"
                 android:visibility="gone"/>
         </LinearLayout>
 
@@ -48,11 +48,11 @@
             android:id="@+id/progressBarQuestion"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
-            android:layout_height="6dp"
+            android:layout_height="4dp"
             android:max="100"
             android:progress="0"
-            android:progressTint="@color/secondary_light"
-            android:progressBackgroundTint="#44FFFFFF"/>
+            android:progressTint="@color/primary"
+            android:progressBackgroundTint="#33d6ff3a"/>
 
     </LinearLayout>
 
@@ -73,8 +73,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="3dp">
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/divider">
                 <TextView
                     android:id="@+id/tvQuestion"
                     android:layout_width="match_parent"
@@ -85,7 +87,7 @@
                     android:padding="20dp"/>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Opciones como RadioButtons con card -->
+            <!-- Opciones -->
             <RadioGroup
                 android:id="@+id/radioGroup"
                 android:layout_width="match_parent"
@@ -101,7 +103,7 @@
                     android:textSize="14sp"
                     android:textColor="@color/text_primary"
                     android:background="@drawable/bg_option_card"
-                    android:buttonTint="@color/primary"/>
+                    android:buttonTint="@color/dark"/>
 
                 <RadioButton
                     android:id="@+id/rbOption1"
@@ -112,7 +114,7 @@
                     android:textSize="14sp"
                     android:textColor="@color/text_primary"
                     android:background="@drawable/bg_option_card"
-                    android:buttonTint="@color/primary"/>
+                    android:buttonTint="@color/dark"/>
 
                 <RadioButton
                     android:id="@+id/rbOption2"
@@ -123,7 +125,7 @@
                     android:textSize="14sp"
                     android:textColor="@color/text_primary"
                     android:background="@drawable/bg_option_card"
-                    android:buttonTint="@color/primary"/>
+                    android:buttonTint="@color/dark"/>
 
                 <RadioButton
                     android:id="@+id/rbOption3"
@@ -133,7 +135,7 @@
                     android:textSize="14sp"
                     android:textColor="@color/text_primary"
                     android:background="@drawable/bg_option_card"
-                    android:buttonTint="@color/primary"/>
+                    android:buttonTint="@color/dark"/>
 
             </RadioGroup>
         </LinearLayout>
@@ -154,10 +156,11 @@
             android:layout_height="48dp"
             android:layout_weight="1"
             android:text="← Anterior"
+            android:textColor="@color/dark"
             android:layout_marginEnd="8dp"
-            app:strokeColor="@color/primary"
+            app:strokeColor="@color/dark_border"
             app:strokeWidth="1dp"
-            app:cornerRadius="10dp"
+            app:cornerRadius="24dp"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
         <com.google.android.material.button.MaterialButton
@@ -166,8 +169,10 @@
             android:layout_height="48dp"
             android:layout_weight="1"
             android:text="Siguiente →"
+            android:textColor="@color/on_primary"
+            android:backgroundTint="@color/dark"
             android:layout_marginStart="8dp"
-            app:cornerRadius="10dp"/>
+            app:cornerRadius="24dp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSubmit"
@@ -175,8 +180,9 @@
             android:layout_height="48dp"
             android:layout_weight="1"
             android:text="Enviar test"
-            android:backgroundTint="@color/success"
-            app:cornerRadius="10dp"
+            android:textColor="@color/on_primary"
+            android:backgroundTint="@color/secondary"
+            app:cornerRadius="24dp"
             android:visibility="gone"/>
 
     </LinearLayout>

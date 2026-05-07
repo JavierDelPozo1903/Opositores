@@ -6,9 +6,12 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="12dp"
     android:layout_marginVertical="6dp"
-    app:cardElevation="3dp"
-    app:cardCornerRadius="12dp"
-    app:rippleColor="#1A1A237E">
+    app:cardElevation="0dp"
+    app:cardCornerRadius="16dp"
+    app:cardBackgroundColor="@color/surface"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/divider"
+    app:rippleColor="#1ad6ff3a">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -60,7 +63,7 @@
                     android:paddingVertical="4dp"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    android:textColor="@color/secondary"
+                    android:textColor="@color/on_primary"
                     android:background="@drawable/bg_status_badge"/>
             </LinearLayout>
 
@@ -72,7 +75,7 @@
             android:layout_height="match_parent"
             android:text="›"
             android:textSize="28sp"
-            android:textColor="@color/primary_light"
+            android:textColor="@color/text_hint"
             android:gravity="center"
             android:paddingEnd="16dp"/>
 

@@ -9,15 +9,16 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="4dp">
+        android:elevation="0dp"
+        android:background="@color/dark">
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@drawable/bg_primary_gradient"
+            android:background="@color/dark"
             app:title="Nuevo test"
             app:titleTextColor="@color/white"
-            app:navigationIconTint="@color/white"/>
+            app:navigationIconTint="@color/primary"/>
     </com.google.android.material.appbar.AppBarLayout>
 
     <ScrollView
@@ -144,8 +145,9 @@
             android:text="Comenzar test"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:cornerRadius="10dp"
-            android:backgroundTint="@color/secondary"/>
+            android:textColor="@color/on_primary"
+            app:cornerRadius="24dp"
+            android:backgroundTint="@color/dark"/>
 
     </LinearLayout>
 

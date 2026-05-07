@@ -11,25 +11,29 @@
         <item name="colorOnSurface">@color/text_primary</item>
         <item name="colorError">@color/error</item>
         <item name="android:colorBackground">@color/background</item>
-        <item name="android:statusBarColor">@color/primary</item>
+        <item name="android:statusBarColor">@color/dark</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="materialCardViewStyle">@style/Widget.Opositores.CardView</item>
         <item name="textInputStyle">@style/Widget.Opositores.TextInputLayout</item>
     </style>
 
     <style name="Widget.Opositores.CardView" parent="Widget.MaterialComponents.CardView">
-        <item name="cardCornerRadius">12dp</item>
-        <item name="cardElevation">2dp</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/surface</item>
         <item name="contentPadding">0dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/divider</item>
     </style>
 
     <style name="Widget.Opositores.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxCornerRadiusTopStart">10dp</item>
-        <item name="boxCornerRadiusTopEnd">10dp</item>
-        <item name="boxCornerRadiusBottomStart">10dp</item>
-        <item name="boxCornerRadiusBottomEnd">10dp</item>
-        <item name="boxStrokeColor">@color/primary_light</item>
-        <item name="hintTextColor">@color/primary_light</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="boxStrokeColor">@color/dark_border</item>
+        <item name="hintTextColor">@color/text_secondary</item>
+        <item name="boxBackgroundColor">@color/surface</item>
     </style>
 
     <style name="TextAppearance.Opositores.Title" parent="TextAppearance.MaterialComponents.Headline5">
@@ -43,8 +47,18 @@
 
     <style name="Widget.Opositores.Button.Primary" parent="Widget.MaterialComponents.Button">
         <item name="android:backgroundTint">@color/primary</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="cornerRadius">10dp</item>
+        <item name="android:textColor">@color/on_primary</item>
+        <item name="cornerRadius">24dp</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:paddingBottom">14dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+
+    <style name="Widget.Opositores.Button.Dark" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/dark</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="cornerRadius">24dp</item>
         <item name="android:paddingTop">14dp</item>
         <item name="android:paddingBottom">14dp</item>
         <item name="android:textStyle">bold</item>
@@ -52,9 +66,9 @@
     </style>
 
     <style name="Widget.Opositores.Button.Secondary" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="strokeColor">@color/primary</item>
-        <item name="android:textColor">@color/primary</item>
-        <item name="cornerRadius">10dp</item>
+        <item name="strokeColor">@color/dark</item>
+        <item name="android:textColor">@color/dark</item>
+        <item name="cornerRadius">24dp</item>
         <item name="android:paddingTop">12dp</item>
         <item name="android:paddingBottom">12dp</item>
     </style>

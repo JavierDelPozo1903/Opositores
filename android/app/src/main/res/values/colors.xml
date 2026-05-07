@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Primarios -->
-    <color name="primary">#1A237E</color>
-    <color name="primary_medium">#283593</color>
-    <color name="primary_light">#3949AB</color>
-    <color name="primary_very_light">#E8EAF6</color>
-    <color name="on_primary">#FFFFFF</color>
+    <!-- Paleta opositOS-Mobile.html -->
+    <color name="primary">#d6ff3a</color>
+    <color name="primary_medium">#c8f020</color>
+    <color name="primary_light">#e2ff7a</color>
+    <color name="primary_very_light">#f5f3ee</color>
+    <color name="on_primary">#0a0a0c</color>
 
-    <!-- Acento -->
-    <color name="secondary">#FF6D00</color>
-    <color name="secondary_light">#FF9E40</color>
-    <color name="on_secondary">#FFFFFF</color>
+    <!-- Acento rosa -->
+    <color name="secondary">#ff2d8a</color>
+    <color name="secondary_light">#ff6bae</color>
+    <color name="on_secondary">#ffffff</color>
+
+    <!-- Dark -->
+    <color name="dark">#0a0a0c</color>
+    <color name="dark_surface">#1a1a20</color>
+    <color name="dark_border">#25252b</color>
 
     <!-- Fondos -->
-    <color name="background">#F0F4FF</color>
+    <color name="background">#f5f3ee</color>
     <color name="surface">#FFFFFF</color>
-    <color name="surface_variant">#F3F4FB</color>
+    <color name="surface_variant">#ece9e3</color>
 
     <!-- Textos -->
-    <color name="text_primary">#1A1A2E</color>
-    <color name="text_secondary">#5C5F7A</color>
-    <color name="text_hint">#9E9EBB</color>
+    <color name="text_primary">#0a0a0c</color>
+    <color name="text_secondary">#4a4a54</color>
+    <color name="text_hint">#8a8a95</color>
     <color name="white">#FFFFFF</color>
 
     <!-- Estado -->
@@ -30,16 +35,16 @@
     <color name="warning_light">#FFF8E1</color>
     <color name="error">#C62828</color>
     <color name="error_light">#FFEBEE</color>
-    <color name="info">#1565C0</color>
-    <color name="info_light">#E3F2FD</color>
+    <color name="info">#d6ff3a</color>
+    <color name="info_light">#f0ffe0</color>
 
     <!-- Estados de temas -->
-    <color name="status_not_started">#9E9E9E</color>
-    <color name="status_studying">#1565C0</color>
-    <color name="status_reviewed">#FF6D00</color>
-    <color name="status_mastered">#2E7D32</color>
+    <color name="status_not_started">#8a8a95</color>
+    <color name="status_studying">#d6ff3a</color>
+    <color name="status_reviewed">#ff2d8a</color>
+    <color name="status_mastered">#0a0a0c</color>
 
     <!-- Divisores y bordes -->
-    <color name="divider">#E0E0EE</color>
-    <color name="card_shadow">#1A1A2E</color>
+    <color name="divider">#dedad4</color>
+    <color name="card_shadow">#0a0a0c</color>
 </resources>
