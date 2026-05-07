@@ -3,7 +3,7 @@
    Connects to Spring Boot backend at /api/*
    ============================================================ */
 
-const API_BASE = '/api';
+const API_BASE = '';
 
 // ---------- Token storage ----------
 const token = {
